@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "GotItMerchantSdkV60"
+name = "GotItMerchantApi"
 version = "1.0.0"
 description = "Merchant APIs"
 authors = ["OpenAPI Generator Community <duong.vu@gotit.vn>"]
@@ -7,7 +7,7 @@ license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Merchant APIs"]
-include = ["GotItMerchantSdkV60/py.typed"]
+include = ["GotItMerchantApi/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -35,7 +35,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "GotItMerchantSdkV60",
+  "GotItMerchantApi",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -73,7 +73,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "GotItMerchantSdkV60.configuration",
+  "GotItMerchantApi.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

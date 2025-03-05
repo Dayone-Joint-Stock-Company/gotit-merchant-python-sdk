@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "GotItMerchantSdkV60"
+NAME = "GotItMerchantApi"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
@@ -46,5 +46,5 @@ setup(
     long_description="""\
     Technical document APIs for Merchant APIs
     """,  # noqa: E501
-    package_data={"GotItMerchantSdkV60": ["py.typed"]},
+    package_data={"GotItMerchantApi": ["py.typed"]},
 )
