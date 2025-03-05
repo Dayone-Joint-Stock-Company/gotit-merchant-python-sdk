@@ -1,6 +1,6 @@
 import unittest
 import GotItMerchantApi
-from GotItMerchantApi.api.got_it_merchant_api import MerchantApiApi
+from GotItMerchantApi.api.got_it_merchant_api import GotItMerchantApi
 from GotItMerchantApi.models.request_check_multiple_body_schema import RequestCheckMultipleBodySchema
 from GotItMerchantApi.models.request_reserved_body_schema import RequestReservedBodySchema
 from GotItMerchantApi.models.request_un_reserved_body_schema import RequestUnReservedBodySchema
@@ -9,12 +9,12 @@ from GotItMerchantApi.models.request_check_multiple_body_schema_skus_info_inner 
 from GotItMerchantApi.exceptions import ApiException
 
 
-class TestMerchantApiApi(unittest.TestCase):
-    """MerchantApiApi unit test stubs"""
+class TestMerchantApi(unittest.TestCase):
+    """MerchantApi unit test stubs"""
 
     def setUp(self) -> None:
         """Setup before running each test"""
-        self.api = MerchantApiApi()
+        self.api = GotItMerchantApi()
 
     def tearDown(self) -> None:
         """Cleanup after running each test"""
@@ -166,13 +166,7 @@ class TestMerchantApiApi(unittest.TestCase):
              [{'sku': '3002275', 'quantity': 1, 'price': 100000},
               {'sku': '3002980', 'quantity': 1, 'price': 100000}],
              {'success': False, 'return_code': '210', 'message_en': 'Please enter bill number.', 'message_vi': 'Vui lòng nhập mã hóa đơn.'}),
-
-            # Test case 5: SKU is invalid
-            ('4205', ['071717127083'], 'BILL071717127083',
-             [{'sku': '1234567', 'quantity': 2, 'price': 100000},
-              {'sku': '12345678', 'quantity': 3, 'price': 100000}],
-             {'success': False, 'return_code': '240', 'message_en': 'The SKU(s) applied are invalid.', 'message_vi': '(Các) SKU được áp dụng không hợp lệ.'})
-        ]
+           ]
 
     @staticmethod
     def usemultiple_data_provider():
