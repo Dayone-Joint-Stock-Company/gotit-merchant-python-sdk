@@ -7,7 +7,6 @@ Include information involve with voucher type is conditional
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_date** | **str** | Promo start date (YYYY-MM-DD) | [optional] 
-**end_date** | **str** | Promo end date (YYYY-MM-DD) | [optional] 
 **exclude_specific_date** | **List[str]** | Promo non-effective dates (YYYY-MM-DD) | [optional] 
 **exclude_recurring_day** | **List[str]** | Promo non-effective day of week | [optional] 
 **redeemable_skus** | **List[str]** | List of redeemable SKUs of the voucher code. For voucher type &#x3D; conditional, bill number must contain at least 1 redeemable SKU of the voucher. | [optional] 

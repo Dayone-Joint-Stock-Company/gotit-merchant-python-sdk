@@ -37,12 +37,11 @@ class TestResponseCheckMultipleSchemaDataInnerConditions(unittest.TestCase):
         if include_optional:
             return ResponseCheckMultipleSchemaDataInnerConditions(
                 start_date = '2025-01-10',
-                end_date = '2025-01-20',
                 exclude_specific_date = [
-                    '["2025-01-01","2025-12-01"]'
+                    '2025-01-01'
                     ],
                 exclude_recurring_day = [
-                    '["Tuesday","Wednesday"]'
+                    'Tuesday'
                     ],
                 redeemable_skus = [
                     'SKU001'

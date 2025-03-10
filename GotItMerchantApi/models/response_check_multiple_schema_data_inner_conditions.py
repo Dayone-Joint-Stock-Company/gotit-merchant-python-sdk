@@ -28,11 +28,10 @@ class ResponseCheckMultipleSchemaDataInnerConditions(BaseModel):
     Include information involve with voucher type is conditional
     """ # noqa: E501
     start_date: Optional[StrictStr] = Field(default=None, description="Promo start date (YYYY-MM-DD)")
-    end_date: Optional[StrictStr] = Field(default=None, description="Promo end date (YYYY-MM-DD)")
     exclude_specific_date: Optional[List[StrictStr]] = Field(default=None, description="Promo non-effective dates (YYYY-MM-DD)")
     exclude_recurring_day: Optional[List[StrictStr]] = Field(default=None, description="Promo non-effective day of week")
     redeemable_skus: Optional[List[StrictStr]] = Field(default=None, description="List of redeemable SKUs of the voucher code. For voucher type = conditional, bill number must contain at least 1 redeemable SKU of the voucher.")
-    __properties: ClassVar[List[str]] = ["start_date", "end_date", "exclude_specific_date", "exclude_recurring_day", "redeemable_skus"]
+    __properties: ClassVar[List[str]] = ["start_date", "exclude_specific_date", "exclude_recurring_day", "redeemable_skus"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +85,6 @@ class ResponseCheckMultipleSchemaDataInnerConditions(BaseModel):
 
         _obj = cls.model_validate({
             "start_date": obj.get("start_date"),
-            "end_date": obj.get("end_date"),
             "exclude_specific_date": obj.get("exclude_specific_date"),
             "exclude_recurring_day": obj.get("exclude_recurring_day"),
             "redeemable_skus": obj.get("redeemable_skus")

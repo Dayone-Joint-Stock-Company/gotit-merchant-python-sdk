@@ -44,12 +44,11 @@ class TestResponseCheckMultipleSchemaDataInner(unittest.TestCase):
                 cancel_date = '',
                 conditions = GotItMerchantApi.models.response_check_multiple_schema_data_inner_conditions.ResponseCheckMultipleSchema_data_inner_conditions(
                     start_date = '2025-01-10', 
-                    end_date = '2025-01-20', 
                     exclude_specific_date = [
-                        '["2025-01-01","2025-12-01"]'
+                        '2025-01-01'
                         ], 
                     exclude_recurring_day = [
-                        '["Tuesday","Wednesday"]'
+                        'Tuesday'
                         ], 
                     redeemable_skus = [
                         'SKU001'
