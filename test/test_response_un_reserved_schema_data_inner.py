@@ -38,6 +38,7 @@ class TestResponseUnReservedSchemaDataInner(unittest.TestCase):
             return ResponseUnReservedSchemaDataInner(
                 code = '070898022379',
                 value = 100000,
+                product_id = 12345,
                 voucher_type = 'conditional'
             )
         else:

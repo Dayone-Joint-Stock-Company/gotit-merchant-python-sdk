@@ -49,6 +49,7 @@ class TestResponseReservedSchema(unittest.TestCase):
                         code = '070898022379', 
                         value = 100000, 
                         state = 1, 
+                        product_id = 12345, 
                         voucher_type = 'conditional', 
                         conditions = GotItMerchantApi.models.response_mark_use_multiple_schema_data_inner_conditions.ResponseMarkUseMultipleSchema_data_inner_conditions(
                             redeemable_skus = [

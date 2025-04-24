@@ -38,6 +38,7 @@ class TestResponseMarkUseMultipleSchemaDataInner(unittest.TestCase):
             return ResponseMarkUseMultipleSchemaDataInner(
                 code = '070898022379',
                 value = 100000,
+                product_id = 12345,
                 state = 4,
                 voucher_type = 'conditional',
                 conditions = GotItMerchantApi.models.response_mark_use_multiple_schema_data_inner_conditions.ResponseMarkUseMultipleSchema_data_inner_conditions(

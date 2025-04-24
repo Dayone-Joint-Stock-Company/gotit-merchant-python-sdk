@@ -29,8 +29,9 @@ class ResponseUnReservedSchemaDataInner(BaseModel):
     """ # noqa: E501
     code: Optional[StrictStr] = Field(default=None, description="Voucher code")
     value: Optional[StrictInt] = Field(default=None, description="Value of voucher")
+    product_id: Optional[StrictInt] = Field(default=None, description="Product ID")
     voucher_type: Optional[StrictStr] = Field(default=None, description="Voucher type, standard or conditional")
-    __properties: ClassVar[List[str]] = ["code", "value", "voucher_type"]
+    __properties: ClassVar[List[str]] = ["code", "value", "product_id", "voucher_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +77,11 @@ class ResponseUnReservedSchemaDataInner(BaseModel):
         if self.value is None and "value" in self.model_fields_set:
             _dict['value'] = None
 
+        # set to None if product_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.product_id is None and "product_id" in self.model_fields_set:
+            _dict['product_id'] = None
+
         return _dict
 
     @classmethod
@@ -90,6 +96,7 @@ class ResponseUnReservedSchemaDataInner(BaseModel):
         _obj = cls.model_validate({
             "code": obj.get("code"),
             "value": obj.get("value"),
+            "product_id": obj.get("product_id"),
             "voucher_type": obj.get("voucher_type")
         })
         return _obj

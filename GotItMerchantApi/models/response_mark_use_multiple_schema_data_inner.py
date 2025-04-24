@@ -31,11 +31,12 @@ class ResponseMarkUseMultipleSchemaDataInner(BaseModel):
     """ # noqa: E501
     code: Optional[StrictStr] = Field(default=None, description="Voucher code")
     value: Optional[StrictInt] = Field(default=None, description="Value of voucher")
+    product_id: Optional[StrictInt] = Field(default=None, description="Product ID")
     state: Optional[StrictInt] = Field(default=None, description="State of voucher")
     voucher_type: Optional[StrictStr] = Field(default=None, description="Voucher type, standard or conditional")
     conditions: Optional[ResponseMarkUseMultipleSchemaDataInnerConditions] = None
     redemptions: Optional[ResponseMarkUseMultipleSchemaDataInnerRedemptions] = None
-    __properties: ClassVar[List[str]] = ["code", "value", "state", "voucher_type", "conditions", "redemptions"]
+    __properties: ClassVar[List[str]] = ["code", "value", "product_id", "state", "voucher_type", "conditions", "redemptions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,11 @@ class ResponseMarkUseMultipleSchemaDataInner(BaseModel):
         if self.value is None and "value" in self.model_fields_set:
             _dict['value'] = None
 
+        # set to None if product_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.product_id is None and "product_id" in self.model_fields_set:
+            _dict['product_id'] = None
+
         # set to None if state (nullable) is None
         # and model_fields_set contains the field
         if self.state is None and "state" in self.model_fields_set:
@@ -106,6 +112,7 @@ class ResponseMarkUseMultipleSchemaDataInner(BaseModel):
         _obj = cls.model_validate({
             "code": obj.get("code"),
             "value": obj.get("value"),
+            "product_id": obj.get("product_id"),
             "state": obj.get("state"),
             "voucher_type": obj.get("voucher_type"),
             "conditions": ResponseMarkUseMultipleSchemaDataInnerConditions.from_dict(obj["conditions"]) if obj.get("conditions") is not None else None,

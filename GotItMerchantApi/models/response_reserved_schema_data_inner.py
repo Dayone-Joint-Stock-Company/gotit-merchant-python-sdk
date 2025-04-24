@@ -32,10 +32,11 @@ class ResponseReservedSchemaDataInner(BaseModel):
     code: Optional[StrictStr] = Field(default=None, description="Voucher code")
     value: Optional[StrictInt] = Field(default=None, description="Value of voucher")
     state: Optional[StrictInt] = Field(default=None, description="State of voucher")
+    product_id: Optional[StrictInt] = Field(default=None, description="Product ID")
     voucher_type: Optional[StrictStr] = Field(default=None, description="Voucher type, standard or conditional")
     conditions: Optional[ResponseMarkUseMultipleSchemaDataInnerConditions] = None
     redemptions: Optional[ResponseReservedSchemaDataInnerRedemptions] = None
-    __properties: ClassVar[List[str]] = ["code", "value", "state", "voucher_type", "conditions", "redemptions"]
+    __properties: ClassVar[List[str]] = ["code", "value", "state", "product_id", "voucher_type", "conditions", "redemptions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class ResponseReservedSchemaDataInner(BaseModel):
         if self.state is None and "state" in self.model_fields_set:
             _dict['state'] = None
 
+        # set to None if product_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.product_id is None and "product_id" in self.model_fields_set:
+            _dict['product_id'] = None
+
         return _dict
 
     @classmethod
@@ -107,6 +113,7 @@ class ResponseReservedSchemaDataInner(BaseModel):
             "code": obj.get("code"),
             "value": obj.get("value"),
             "state": obj.get("state"),
+            "product_id": obj.get("product_id"),
             "voucher_type": obj.get("voucher_type"),
             "conditions": ResponseMarkUseMultipleSchemaDataInnerConditions.from_dict(obj["conditions"]) if obj.get("conditions") is not None else None,
             "redemptions": ResponseReservedSchemaDataInnerRedemptions.from_dict(obj["redemptions"]) if obj.get("redemptions") is not None else None

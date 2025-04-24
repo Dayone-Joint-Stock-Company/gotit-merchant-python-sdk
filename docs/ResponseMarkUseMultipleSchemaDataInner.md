@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** | Voucher code | [optional] 
 **value** | **int** | Value of voucher | [optional] 
+**product_id** | **int** | Product ID | [optional] 
 **state** | **int** | State of voucher | [optional] 
 **voucher_type** | **str** | Voucher type, standard or conditional | [optional] 
 **conditions** | [**ResponseMarkUseMultipleSchemaDataInnerConditions**](ResponseMarkUseMultipleSchemaDataInnerConditions.md) |  | [optional] 

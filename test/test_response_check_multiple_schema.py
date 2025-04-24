@@ -44,6 +44,7 @@ class TestResponseCheckMultipleSchema(unittest.TestCase):
                     GotItMerchantApi.models.response_check_multiple_schema_data_inner.ResponseCheckMultipleSchema_data_inner(
                         code = '070898022379', 
                         value = 100000, 
+                        product_id = 12345, 
                         state = 1, 
                         voucher_type = 'conditional', 
                         expiry_date = '2025-12-26', 

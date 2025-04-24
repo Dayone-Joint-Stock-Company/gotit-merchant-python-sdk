@@ -48,6 +48,7 @@ class TestResponseUnReservedSchema(unittest.TestCase):
                     GotItMerchantApi.models.response_un_reserved_schema_data_inner.ResponseUnReservedSchema_data_inner(
                         code = '070898022379', 
                         value = 100000, 
+                        product_id = 12345, 
                         voucher_type = 'conditional', )
                     ]
             )
